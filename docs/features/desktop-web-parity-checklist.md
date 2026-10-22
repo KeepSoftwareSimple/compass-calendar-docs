@@ -114,9 +114,9 @@ This checklist compares **apps/calendar-web** (reference UI) with **apps/calenda
 | Replaces sidebar body while open | ✅ | `EventFormView` in `RootView` |
 | Date field **MM.DD.YY** closed display | 🟡 | `EventFormCompactDateField` + `EventFormDateFormat`; verify parity capture after merge |
 | Datepicker open Enter/Space/ArrowDown | 🟡 | Audit `EventFormScheduleSection.swift` vs web |
-| Time pickers | 🟡 | Visual parity pass needed |
+| Time pickers | 🟡 | The list opens centered on the selected time (or the quarter hour before it) like web. Still differs: macOS shows the list and the date picker as AppKit popovers that can open to the side of the field, while web drops them below it |
 | Location / Meet / guests grouping | ✅ | #4607 single `EventFormCard` + description card (web #4599) |
-| Color row Mod+digit hint | 🟡 | Trailing ⌘ 6 keycaps like web `EventColorPicker`; web swaps to ← → · Enter while a swatch has focus, macOS has no swatch arrow keys yet. The demo capture also shows a guest row on macOS only: the demo fixture calendar can invite (UI tests need it), the real local calendar cannot |
+| Color row keys and hints | ✅ | Like web `EventColorPicker`: trailing ⌘ 6 keycaps; once color has focus (Mod+6 or E then C) ← → move a focus ring, Space / Enter pick, pick keys 1-9 0 - = choose a swatch and show on each swatch, and the hint swaps to ← → · Enter. The demo capture also shows a guest row on macOS only: the demo fixture calendar can invite (UI tests need it), the real local calendar cannot |
 | Save bar: accent fill, on-accent text, space-between, **⌘Enter** hint | 🟡 | macOS save bar matches accent + Mod+Enter keycap (#4610); sidebar shows web save-draft tip (#4614) |
 | Mod+digit field jump + hold-Mod chips | ✅ | `ModHoldChipsOverlay`, layout snapshots; chips sit at the anchor's top-right corner like web `DigitHintChipOverlay` (top + 2px, flush right), so the month picker chip no longer hides the Lv badge's "v" |
 | Hold-Mod day header keycaps (⇧SU, ⇧M, ...) | ✅ | Week headers swap the weekday for `WeekDayColumnHeaderControl` keycaps while Mod is held; bare letters in event-jump mode |
